@@ -1,0 +1,9 @@
+sudo: required
+services:
+   - docker
+
+before_install:
+   - docker build -f Dockerfile.dev . -t ldkhang/docker-react:dev
+
+script:
+   - docker run ldkhang/docker-react:dev npm run test -- --coverage
